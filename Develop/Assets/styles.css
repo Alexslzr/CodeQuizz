@@ -1,0 +1,36 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main{
+    text-align: center;
+    /*display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;*/
+}
+/*
+--lavender-web: #D9D3E9ff;
+--persian-indigo: #351C75ff;
+--lavender-floral: #CB81ECff;
+--amethyst: #BD60E7ff;   hover button
+
+*/
+button{
+    padding: 10px;
+    background: #351C75ff;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    width: 150px
+}
+
+button:hover{
+    background: #BD60E7ff;
+}
+
+a{
+    color: #CB81ECff;
+    text-decoration: none;
+}
