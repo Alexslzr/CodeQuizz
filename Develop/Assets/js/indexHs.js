@@ -34,7 +34,7 @@ function renderScore() {
 
 function clearStorage(){
     localStorage.removeItem("scores")
-    hsList.innerHTML = '<p>There is record from previous attemps</p>';
+    hsList.innerHTML = '<p>There is no record from previous attemps</p>';
 }
   
 highScores();
