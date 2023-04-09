@@ -23,14 +23,38 @@ button{
     border-radius: 5px;
     color: white;
     border: none;
-    width: 150px
+    width: 150px;
+    text-align: left;
+    margin-bottom: 10px;
 }
 
 button:hover{
-    background: #BD60E7ff;
+   /* background: #BD60E7ff;*/
+    opacity: 0.75;
 }
 
 a{
     color: #CB81ECff;
     text-decoration: none;
+}
+
+#hs-list{
+    background-color: #CB81ECff;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#btn{
+    text-align: center;
+}
+
+input{
+    margin-bottom: 10px;
 }
