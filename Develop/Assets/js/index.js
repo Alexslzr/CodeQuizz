@@ -6,7 +6,12 @@ let timerEl = document.getElementById('timer');
 
 let timeLeft = 100;
 let timerInterval;
-let array = [];
+let uwu = {
+    val1: [],
+    val2: []
+};
+
+
 let wasCorrect = false;
 
 btnEL.addEventListener("click", question1);
@@ -122,10 +127,10 @@ function scoreBoard(){
                         <div style="display: flex; justify-content: center; align-items: center;">
                             <p style="margin-right: 10px;">Enter Initials: </p>
                             <input type="text" placeholder="Please enter your initials" style="margin-right: 10px; width: 300px;"/>
-                            <a href="highScores.html"><button id="submit">Submit</button></a>
+                            <a href="Assets/html/highScores.html"><button id="submit">Submit</button></a>
                         </div>
                         `
-
+ 
     if(wasCorrect){
         mainEl.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey">Correct</h2>`
     } else{
@@ -135,13 +140,25 @@ function scoreBoard(){
     
     answer();
 
-    submit.addEventListener("click", function(){
-        let initials = document.querySelector('textarea').value.trim();
-        console.log(initials)
-        array.push(timeLeft)
-        console.log(array)
-        localStorage.setItem("initials", initials)
-        localStorage.setItem("score", JSON.stringify(array))
+    submit.addEventListener("click", function(event){
+        let anotherobject = JSON.parse(localStorage.getItem('scores'))
+        console.log(anotherobject)
+        
+        if(anotherobject !== null){
+            uwu.val1 = anotherobject.val1
+            uwu.val2 = anotherobject.val2
+        }
+        
+
+        let initials = document.querySelector('input').value.trim();
+        if(initials === ""){
+            return
+        }
+
+        uwu.val1.push(initials)
+        initials.value = "";
+        uwu.val2.push(timeLeft)
+        localStorage.setItem('scores', JSON.stringify(uwu))
     })
 }
 

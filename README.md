@@ -36,3 +36,4 @@ Github :
 https://github.com/Alexslzr
 
 Page :
+https://alexslzr.github.io/CodeQuizz/Develop/

@@ -18,6 +18,7 @@ main{
 
 */
 button{
+    align-items: start;
     padding: 10px;
     background: #351C75ff;
     border-radius: 5px;
@@ -39,11 +40,14 @@ a{
 }
 
 #hs-list{
-    background-color: #CB81ECff;
+    display: flex;
+    background-color: #D9D3E9ff;
     text-align: center;
+    align-items: left;
     padding: 10px;
     margin-bottom: 20px;
 }
+
 
 div{
     display: flex;
@@ -57,4 +61,8 @@ div{
 
 input{
     margin-bottom: 10px;
+}
+
+li{
+    list-style: none;
 }
