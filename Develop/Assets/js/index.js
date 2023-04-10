@@ -6,7 +6,7 @@ let timerEl = document.getElementById('timer');
 
 let timeLeft = 100;
 let timerInterval;
-let uwu = {
+let hsObject = {
     val1: [],
     val2: []
 };
@@ -18,14 +18,16 @@ btnEL.addEventListener("click", question1);
 
 function question1() {
     setTime()
-    mainEl.innerHTML = `
-                        <h1>Commonly used data types do NOT include:</h1>
-                        <div id="quest1">
-                            <button class="incorrect">1. Strings</button>
-                            <button class="incorrect">2. Booleans</button>
-                            <button id="correct1">3. Alerts</button>
-                            <button class="incorrect">4. Numbers</button>
-                        </div>
+    mainEl.innerHTML = ` 
+                        <section>
+                            <h1>Commonly used data types do NOT include:</h1>
+                            <div id="quest1" class="quest">
+                                <button class="incorrect">1. Strings</button>
+                                <button class="incorrect">2. Booleans</button>
+                                <button id="correct1">3. Alerts</button>
+                                <button class="incorrect">4. Numbers</button>
+                            </div>
+                        </section>
     `
     let pregunta1 = document.getElementById('quest1');
 
@@ -47,18 +49,21 @@ function question1() {
 
 function question2(){
     mainEl.innerHTML = `
-                        <h1>The condition in an if/else statement is enclosed with______.</h1>
-                        <div id="quest2">
-                            <button class="incorrect">1. Quotes</button>
-                            <button class="incorrect">2. Curly Brackets</button>
-                            <button id="correct2">3. Parenthesis</button>
-                            <button class="incorrect">4. Square Brackets</button>
-                        </div>
+                        <section>
+                            <h1>The condition in an if/else statement is enclosed with______.</h1>
+                            <div id="quest2" class="quest">
+                                <button class="incorrect">1. Quotes</button>
+                                <button class="incorrect">2. Curly Brackets</button>
+                                <button id="correct2">3. Parenthesis</button>
+                                <button class="incorrect">4. Square Brackets</button>
+                            </div>
+                        </section>
     `
+    let sect = document.querySelector('section')
     if(wasCorrect){
-        mainEl.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey">Correct</h2>`
+        sect.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey; color: grey; font-style: italic">Correct</h2>`
     } else{
-        mainEl.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey">Wrong</h2>`
+        sect.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey; color: grey; font-style: italic">Wrong</h2>`
     }
 
     answer();
@@ -83,18 +88,21 @@ function question2(){
 
 function question3(){
     mainEl.innerHTML = `
-                        <h1>A very useful tool used during development and debugging for printing content to the debugger is:</h1>
-                        <div id="quest3">
-                            <button class="incorrect">1. JavaScript</button>
-                            <button class="incorrect">2. terminal/bash</button>
-                            <button class="incorrect">3. for loops</button>
-                            <button id="correct3">4.console.log</button>
-                        </div>
+                        <section>
+                            <h1>A very useful tool used during development and debugging for printing content to the debugger is:</h1>
+                            <div id="quest3" class="quest">
+                                <button class="incorrect">1. JavaScript</button>
+                                <button class="incorrect">2. terminal/bash</button>
+                                <button class="incorrect">3. for loops</button>
+                                <button id="correct3">4.console.log</button>
+                            </div>
+                        </section>
     `
+    let sect = document.querySelector('section')
     if(wasCorrect){
-        mainEl.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey">Correct</h2>`
+        sect.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey; color: grey; font-style: italic">Correct</h2>`
     } else{
-        mainEl.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey">Wrong</h2>`
+        sect.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey; color: grey; font-style: italic">Wrong</h2>`
     }
 
     answer();
@@ -122,31 +130,37 @@ function scoreBoard(){
     let finalTime = timeLeft;
     timerEl.textContent = finalTime;
     mainEl.innerHTML = `
-                        <h1>All Done!</h1>
-                        <p>Your Final Score is: ${finalTime}</p>
-                        <div style="display: flex; justify-content: center; align-items: center;">
-                            <p style="margin-right: 10px;">Enter Initials: </p>
-                            <input type="text" placeholder="Please enter your initials" style="margin-right: 10px; width: 300px;"/>
-                            <a href="Assets/html/highScores.html"><button id="submit">Submit</button></a>
-                        </div>
+                        <section>
+                            <div class="init">
+                                <h1>All Done!</h1>
+                                <p>Your Final Score is: ${finalTime}</p>
+                                <div id="initial" style="display: flex; justify-content: center; align-items: center;">
+                                    <p style="margin-right: 10px;">Enter Initials: </p>
+                                    <input type="text" placeholder="Please enter your initials" style="margin-right: 10px; width: 300px; height: 30px"/>
+                                    <a href="Assets/html/highScores.html"><button id="submit">Submit</button></a>
+                                </div>
+                            </div>
+                        </section>
                         `
  
+    let sect = document.querySelector('section')
     if(wasCorrect){
-        mainEl.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey">Correct</h2>`
+        sect.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey; color: grey; font-style: italic">Correct</h2>`
     } else{
-        mainEl.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey">Wrong</h2>`
+        sect.innerHTML+=`<h2 id='ans' data-state="hidden" style="border-top:1px solid grey; color: grey; font-style: italic">Wrong</h2>`
     }
+
     let submit = document.getElementById("submit")
     
     answer();
 
-    submit.addEventListener("click", function(event){
+    submit.addEventListener("click", function(){
         let anotherobject = JSON.parse(localStorage.getItem('scores'))
         console.log(anotherobject)
         
         if(anotherobject !== null){
-            uwu.val1 = anotherobject.val1
-            uwu.val2 = anotherobject.val2
+            hsObject.val1 = anotherobject.val1
+            hsObject.val2 = anotherobject.val2
         }
         
 
@@ -154,11 +168,11 @@ function scoreBoard(){
         if(initials === ""){
             return
         }
-
-        uwu.val1.push(initials)
+        let upInitial = initials.toUpperCase()
+        hsObject.val1.push(upInitial)
         initials.value = "";
-        uwu.val2.push(timeLeft)
-        localStorage.setItem('scores', JSON.stringify(uwu))
+        hsObject.val2.push(timeLeft)
+        localStorage.setItem('scores', JSON.stringify(hsObject))
     })
 }
 
