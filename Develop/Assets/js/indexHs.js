@@ -4,15 +4,14 @@ let score = {
   scores:[]
 };
 
-let hS1 = localStorage.getItem("initials")
-let remove = document.getElementById("remove")
+let remove = document.getElementById("remove") //btn element used to remove the saved elements in localstorage
 
-remove.addEventListener("click", clearStorage)
+remove.addEventListener("click", clearStorage) //calls the function to remove the storage
 
 function highScores(){
 
   
-    if(hsList.innerHTML === ''){
+    if(hsList.innerHTML === ''){ //if our list is empty, prints the following element
       hsList.innerHTML = '<p>There is no record from previous attemps</p>';
     }
 
@@ -28,15 +27,15 @@ function highScores(){
 
 
 function renderScore() {
-  hsList.innerHTML = ''
-    for (var i = 0; i < score.initial.length; i++) {
-        hsList.innerHTML += `<li>${i+1}. ${score.initial[i]} - ${score.scores[i]}</li>`
+  hsList.innerHTML = ''//previous val of the hsList element get removed
+    for (var i = 0; i < score.initial.length; i++) { 
+        hsList.innerHTML += `<li>${i+1}. ${score.initial[i]} - ${score.scores[i]}</li>` //we append each of the elements saved in our local storage in list elements to show the scores
     }
   }
 
-function clearStorage(){
-    localStorage.removeItem("scores")
+function clearStorage(){ //remove everything in localstorage and add a text
+    localStorage.removeItem("scores") 
     hsList.innerHTML = '<p>There is no record from previous attemps</p>';
 }
 
-highScores();
+highScores(); //call highscore function
