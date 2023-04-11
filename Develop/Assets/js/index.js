@@ -135,7 +135,7 @@ function scoreBoard(){
                                 <div id="initial" style="display: flex; justify-content: center; align-items: center;">
                                     <p style="margin-right: 10px;">Enter Initials: </p>
                                     <input type="text" placeholder="Please enter your initials" style="margin-right: 10px; width: 300px; height: 30px"/>
-                                    <button onclick="location.href='Assets/html/highScores.html'" id="submit">Submit</button>
+                                    <button id="submit">Submit</button>
                                 </div>
                             </div>
                         </section>
@@ -152,7 +152,8 @@ function scoreBoard(){
     
     answer();
 
-    submit.addEventListener("click", function(){ 
+    submit.addEventListener("click", function(event){
+        event.preventDefault();
         let anotherobject = JSON.parse(localStorage.getItem('scores')) //first we get the previous val of the scorse if they exist, we used the parse method to convert it into an object
         
         if(anotherobject !== null){ //if its not null we push the values in to the arrays inside the array we declared before
@@ -162,14 +163,17 @@ function scoreBoard(){
         
 
         let initials = document.querySelector('input').value.trim(); //create a variable to save the value introduced on input tag and used trim to clear it from spaces
-        if(initials === ""){
-            return
+        if(!initials){ //if no value introduced, displays an alert
+            alert("Please introduce your initials")
+            return;
         }
+
         let upInitial = initials.toUpperCase() //we call this method to upper case the initials entered
         hsObject.val1.push(upInitial)  //after uppercase we push the val to our array in the object
         initials.value = ""; //set the input to empty for further entrances
         hsObject.val2.push(finalTime)  //we push the final time to our array
         localStorage.setItem('scores', JSON.stringify(hsObject)) //we transform to string the object in order to save it in our localStorage
+        window.location.href="Assets/html/highScores.html"
     })
 }
 
@@ -206,3 +210,37 @@ function answer(){ //used to hide the answer elements
 function wrongAns(){ //when this function is called, time gets 10 seconds substracted
     timeLeft = (timeLeft-10);
 }
+
+
+/*
+// add event listener for timesupbtn Submit
+    timesupbtn.addEventListener("click", function() {
+        // create variable for initials
+        var initials = timesupInput.value;
+        // force user to enter value
+        if (initials === "") {
+            alert("Please input your initials");
+            return;
+        } else {
+            //create finalScore var object to use for local storage
+            var finalScore = {
+                initials: initials,
+                score: calculatedScore
+            }
+            //console log finalScore var
+            console.log("* Var final score:\nInitials: " + finalScore.initials + "\nScore: " + finalScore.score);
+        }
+        var highScores = localStorage.getItem("highScores");
+        if (highScores === null) {
+            highScores = [];
+        } else {
+            highScores = JSON.parse(highScores);
+        }
+        highScores.push(finalScore);
+        //Sort by score
+        highScores.sort(function(a,b) {
+            return b.score - a.score;
+        });
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+        window.location.replace("./highscores.html");
+    });*/
