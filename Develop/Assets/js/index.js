@@ -211,36 +211,3 @@ function wrongAns(){ //when this function is called, time gets 10 seconds substr
     timeLeft = (timeLeft-10);
 }
 
-
-/*
-// add event listener for timesupbtn Submit
-    timesupbtn.addEventListener("click", function() {
-        // create variable for initials
-        var initials = timesupInput.value;
-        // force user to enter value
-        if (initials === "") {
-            alert("Please input your initials");
-            return;
-        } else {
-            //create finalScore var object to use for local storage
-            var finalScore = {
-                initials: initials,
-                score: calculatedScore
-            }
-            //console log finalScore var
-            console.log("* Var final score:\nInitials: " + finalScore.initials + "\nScore: " + finalScore.score);
-        }
-        var highScores = localStorage.getItem("highScores");
-        if (highScores === null) {
-            highScores = [];
-        } else {
-            highScores = JSON.parse(highScores);
-        }
-        highScores.push(finalScore);
-        //Sort by score
-        highScores.sort(function(a,b) {
-            return b.score - a.score;
-        });
-        localStorage.setItem("highScores", JSON.stringify(highScores));
-        window.location.replace("./highscores.html");
-    });*/
