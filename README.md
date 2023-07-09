@@ -1,5 +1,7 @@
 # CodeQuizz
 
+<img src="https://img.shields.io/badge/License-MIT-blue"></img>
+
 ## Description
 
 Developed a quick basic Javascript quiz with timer, the score would be the timer caught at the end of the quizz,
@@ -19,6 +21,10 @@ SO THAT I can gauge my progress compared to my peers
 The following animation demonstrates the application functionality:
 
 ![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Develop/Assets/gif/04-web-apis-homework-demo.gif)
+
+## License
+
+This project utilizes an MIT License. [Read more](https://choosealicense.com/licenses/mit/)
 
 ## Links
 
